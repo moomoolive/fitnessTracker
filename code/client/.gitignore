@@ -1,0 +1,5 @@
+# package source files
+node_modules/
+
+# distribution files folder
+dist/

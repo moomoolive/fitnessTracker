@@ -43,6 +43,10 @@ module.exports = {
   
           // no unused variables
           '@typescript-eslint/no-unused-vars': ['error'],
+
+          // no console logs, disable eslint temporarily if you want to log
+          // using "eslint-disable-next-line"
+          'no-console': ["error"],
   
           // I suggest this setting for requiring return types on functions only where useful
           '@typescript-eslint/explicit-function-return-type': [

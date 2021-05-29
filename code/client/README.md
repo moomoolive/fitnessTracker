@@ -6,6 +6,12 @@
 * Jest
 * SASS
 
+## Useful Conventions
+
+* "@" imports from the project's root directory. For example "@/pages/index.tsx" is the equivalent of "./pages/index.tsx" from this directory, but the previous can be used in any folder with the same syntax.
+
+## NPM Scripts
+
 ### Run development server with hot reload
 ```
 npm run dev

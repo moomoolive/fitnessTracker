@@ -31,11 +31,6 @@ npm run lint
 npm run test:debug
 ```
 
-### Run diagnostics on test library
-```
-npm run test:debug
-```
-
 ### Run unit tests
 ```
 npm run test:unit

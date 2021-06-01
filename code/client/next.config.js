@@ -1,5 +1,3 @@
-const path = require('path')
-
 const typescriptsFileExtensions = /.tsx|.ts/
 
 module.exports = {
@@ -14,7 +12,7 @@ module.exports = {
         }
         return config
     },
-    sassOptions: {
-        includePaths: [path.join(__dirname, 'scss')],
+    future: {
+        webpack5: true,
     },
 }

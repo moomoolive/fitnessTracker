@@ -1,32 +1,24 @@
-import { FC, useState, useEffect } from 'react'
+import { FC } from 'react'
+import Link from 'next/link'
 
-import requestHelpers from "@/libraries/IO/requests/main"
+import AppContainer from "@/components/appContainer/main"
 
-import { testRequestReturn } from "@/libraries/IO/requests/interfaces"
+const LoginPage: FC = () => {
 
-/* 
-This is the entry point of the app into the real DOM  
-*/
-const HomePage: FC = () => {
-    const [serverRes, setServerRes] = useState("no request yet")
-
-    // one time effect hooks
-    useEffect(() => {
-        const func = async (): Promise<void> => {
-            const res: testRequestReturn = await requestHelpers.testRequest()
-            setServerRes(res.name)
-        }
-        func()
-    }, [])
-
-    return ( 
-        <div>
-            Welcome to Next.js!
+    return (
+        <AppContainer>
             <div>
-                { serverRes }
+                Welcome to Next.js!
+                <div>
+                </div>
+                <div>
+                    <Link href="/home">
+                        to Home
+                    </Link>
+                </div>
             </div>
-        </div>
+        </AppContainer> 
     )
 }
 
-export default HomePage
+export default LoginPage

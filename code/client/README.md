@@ -4,7 +4,7 @@
 * Typescript
 * ESlint
 * Jest
-* SASS
+* JSS
 
 ## Useful Conventions
 

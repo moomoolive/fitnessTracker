@@ -11,3 +11,7 @@ Every library generally has up to three files
 ## IO-operations
 
 All IO operations (requests for example) are found under the IO folder. They follow the same structure as above.
+
+## Testing
+
+Because jest is being used for unit tests use the commonJS syntax for imports (eg. 'require("./path/to/module")')

@@ -12,8 +12,8 @@ export const styles = {
     },
     header: {
         background: lightGrey,
-        "padding-top": "20px",
-        "padding-bottom": "20px",
+        "padding-top": "10px",
+        "padding-bottom": "10px",
         position: "fixed",
         width: "100vw",
         "z-index": 5
@@ -30,7 +30,8 @@ export const styles = {
         "min-height": "80vh",
     },
     "header-logo": {
-        "font-size": "18px !important",
+        height: "20px",
+        color: "#D31251"
     },
     "main-section": {
         width: "100vw",
@@ -40,6 +41,13 @@ export const styles = {
     footer: {
         background: lightGrey,
         "min-height": "20vh",
+    },
+    loadingScreen: {
+        background: "#000000",
+        height: "100vh",
+        display: "flex",
+        "align-items": "center",
+        "justify-content": "center"
     },
     '@global': {
         body: {

@@ -61,4 +61,4 @@ export const initializeStore = (preloadedState) => {
 export function useStore(initialState) {
     const store = useMemo(() => initializeStore(initialState), [initialState])
     return store
-  }
+}

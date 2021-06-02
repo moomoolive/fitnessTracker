@@ -4,7 +4,10 @@ module.exports = {
       node: true,
       es6: true,
     },
-    parserOptions: { ecmaVersion: 8 }, // to enable features such as async/await
+    parserOptions: { 
+      ecmaVersion: 8,
+      sourceType: "module"
+    }, 
     ignorePatterns: [
         'node_modules/*', 
         '.next/*', '.out/*', 

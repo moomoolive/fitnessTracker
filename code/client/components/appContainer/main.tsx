@@ -6,10 +6,15 @@ import withStyles from 'react-jss'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
-import { useLoading, Audio } from '@agney/react-loading';
+import { useLoading, Audio } from '@agney/react-loading'
+import  { Collapse } from 'react-collapse'
+
+import { ThemeContext, themes } from '@/contexts/theme.js'
 
 const AppContainer: FC<IProps> = ({ children, classes }) => {
     const [showMainContent, toggleMainContent] = useState(false)
+    const [theme, setTheme] = useState(themes.alternate)
+    const value = { theme, setTheme }
 
     useEffect(() => {
         const milliseconds = 3_000
@@ -18,23 +23,25 @@ const AppContainer: FC<IProps> = ({ children, classes }) => {
 
     const MainBody: FC = () => {
         return (
-            <div className={ classes.app }>
+            <ThemeContext.Provider value={ value }>
+                <div className={ classes.app }>
 
-                <div className={ classes.header }>
-                    <div className={ classes["header-content"] }>
-                        <FontAwesomeIcon className={ classes['header-logo'] } icon={ faHeart } />
+                    <div className={ classes.header }>
+                        <div className={ classes["header-content"] }>
+                            <FontAwesomeIcon className={ classes['header-logo'] } icon={ faHeart } />
+                        </div>
                     </div>
-                </div>
-                
-                <div className={ `${classes["main-section"]} ${classes["body-content"]}` }>
-                    { children }
-                </div>
-                
-                <div className={ `${classes["main-section"]} ${classes["footer"]}` }>
-                    Footer
-                </div>
+                    
+                    <div className={ `${classes["main-section"]} ${classes["body-content"]}` }>
+                        { children }
+                    </div>
+                    
+                    <div className={ `${classes["main-section"]} ${classes["footer"]}` }>
+                        Footer
+                    </div>
 
-            </div>
+                </div>
+            </ThemeContext.Provider>
         )
     }
 
@@ -45,13 +52,15 @@ const AppContainer: FC<IProps> = ({ children, classes }) => {
         })
 
         return (
-            <div className={ classes.loadingScreen }>
-                <div>
-                    <section {...containerProps}>
-                        {indicatorEl}
-                    </section>
+            <Collapse isOpened={ !showMainContent }>
+                <div className={ classes.loadingScreen }>
+                    <div>
+                        <section {...containerProps}>
+                            {indicatorEl}
+                        </section>
+                    </div>
                 </div>
-            </div>
+            </Collapse>
         )
     }
 
@@ -69,7 +78,9 @@ const AppContainer: FC<IProps> = ({ children, classes }) => {
                     key="stylesheet-font"
                 />
             </Head>
-            { showMainContent ? MainBody() : LoadingScreen() }
+            <div>
+                { showMainContent ? MainBody() : LoadingScreen() }
+            </div>
         </div>
     )
 }
